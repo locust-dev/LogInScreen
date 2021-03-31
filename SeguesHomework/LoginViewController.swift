@@ -36,12 +36,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logInButton() {
-        if loginTF.text == "Alex" && passwordTF.text == "qwerty" {
+        if loginTF.text == "Alex", passwordTF.text == "qwerty" {
             performSegue(withIdentifier: "toWelcomeScreen", sender: nil)
         } else {
             alert(title: "Wow!", message: "It looks like your credentials are incorrect😾")
-            anim(for: loginTF)
-            anim(for: passwordTF)
+            addAnimationShake(for: loginTF)
+            addAnimationShake(for: passwordTF)
         }
     }
     
@@ -72,14 +72,16 @@ extension LoginViewController {
     private func alert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            self.loginTF.text = ""
             self.passwordTF.text = ""
         }
         
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
+}
+
+// MARK: - Appearance Methods
+extension LoginViewController {
     private func addAppearance(for outlet: UIView) {
         outlet.layer.cornerRadius = outlet.frame.height / 2
         outlet.layer.shadowOpacity = 0.25
@@ -88,7 +90,7 @@ extension LoginViewController {
         outlet.layer.shadowRadius = 5.0
     }
     
-    func anim(for outlet: UIView) {
+    private func addAnimationShake(for outlet: UIView) {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.duration = 0.6

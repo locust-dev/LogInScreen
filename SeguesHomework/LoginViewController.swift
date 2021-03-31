@@ -37,8 +37,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func logInButton() {
         loginTF.text == "Alex" && passwordTF.text == "qwerty" ?
-        performSegue(withIdentifier: "toWelcomeScreen", sender: nil) :
-        alert(title: "Wow!", message: "It looks like your credentials are incorrect😾")
+            performSegue(withIdentifier: "toWelcomeScreen", sender: nil) :
+            alert(title: "Wow!", message: "It looks like your credentials are incorrect😾")
     }
     
     @IBAction func forgotButtons(_ sender: UIButton) {
@@ -53,11 +53,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let nextTF = passwordTF else { return true }
-        nextTF.becomeFirstResponder()
-        
-        if passwordTF.text?.count ?? 0 > 0 {
-            logInButton()
+        switch textField {
+        case loginTF: passwordTF.becomeFirstResponder()
+        default: logInButton()
         }
         return true
     }

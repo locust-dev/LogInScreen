@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         addAppearance(for: logInBtnOutlet)
         addAppearance(for: loginTF)
         addAppearance(for: passwordTF)
@@ -36,16 +36,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logInButton() {
-        if loginTF.text != "Alex" || passwordTF.text != "qwerty" {
-            alert(title: "Wow!", message: "It looks like your credentials are incorrect😾")
-        }
+        loginTF.text == "Alex" && passwordTF.text == "qwerty" ?
+        performSegue(withIdentifier: "toWelcomeScreen", sender: nil) :
+        alert(title: "Wow!", message: "It looks like your credentials are incorrect😾")
     }
     
     @IBAction func forgotButtons(_ sender: UIButton) {
-         sender == forgotUserName ?
-             alert(title: "Forgot?", message: "Your login is Alex!") :
-             alert(title: "Forgot?", message: "Your password is qwerty!")
-     }
+        sender == forgotUserName ?
+            alert(title: "Forgot?", message: "Your login is Alex!") :
+            alert(title: "Forgot?", message: "Your password is qwerty!")
+    }
     
     @IBAction func unwindToLogin(for segue: UIStoryboardSegue) {
         loginTF.text = ""
@@ -58,7 +58,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if passwordTF.text?.count ?? 0 > 0 {
             logInButton()
-            performSegue(withIdentifier: "toWelcomeScreen", sender: nil)
         }
         return true
     }

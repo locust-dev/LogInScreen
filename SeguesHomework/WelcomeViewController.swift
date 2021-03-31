@@ -20,5 +20,4 @@ class WelcomeViewController: UIViewController {
         userNameLabel.text = "Welcome, \(userName ?? "")!"
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
     }
-    
 }

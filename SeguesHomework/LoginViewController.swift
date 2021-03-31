@@ -36,9 +36,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logInButton() {
-        loginTF.text == "Alex" && passwordTF.text == "qwerty" ?
-            performSegue(withIdentifier: "toWelcomeScreen", sender: nil) :
+        if loginTF.text == "Alex" && passwordTF.text == "qwerty" {
+            performSegue(withIdentifier: "toWelcomeScreen", sender: nil)
+        } else {
             alert(title: "Wow!", message: "It looks like your credentials are incorrect😾")
+            anim(for: loginTF)
+            anim(for: passwordTF)
+        }
     }
     
     @IBAction func forgotButtons(_ sender: UIButton) {
@@ -82,5 +86,13 @@ extension LoginViewController {
         outlet.layer.shadowOffset = CGSize(width: 7, height: 10)
         outlet.layer.shadowColor = UIColor.black.cgColor
         outlet.layer.shadowRadius = 5.0
+    }
+    
+    func anim(for outlet: UIView) {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        outlet.layer.add(animation, forKey: "shake")
     }
 }

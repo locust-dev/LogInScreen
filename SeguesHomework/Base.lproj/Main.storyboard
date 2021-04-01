@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sgk-U0-Jyk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="-10" y="-10" width="434" height="916"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="VzZ-NT-YVO">
-                                <rect key="frame" x="60" y="341" width="294" height="103"/>
+                                <rect key="frame" x="60" y="194" width="294" height="103"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Login" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="klb-2h-K96">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="45"/>
@@ -48,7 +48,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="v1t-W5-4UC">
-                                <rect key="frame" x="54.666666666666657" y="489" width="305" height="95"/>
+                                <rect key="frame" x="54.666666666666657" y="342" width="305" height="95"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkS-Po-Ngm">
                                         <rect key="frame" x="87.333333333333343" y="0.0" width="130" height="50"/>
@@ -103,9 +103,9 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="obt-uo-hYz" secondAttribute="trailing" constant="-10" id="32X-un-mUc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v1t-W5-4UC" secondAttribute="bottom" constant="278" id="4mh-Ow-qfg"/>
                             <constraint firstItem="v1t-W5-4UC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CWY-4q-C7i"/>
                             <constraint firstItem="VzZ-NT-YVO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Rul-qG-CTc"/>
+                            <constraint firstItem="VzZ-NT-YVO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="SSK-XX-30B"/>
                             <constraint firstItem="obt-uo-hYz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-10" id="eEP-vN-ngd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VzZ-NT-YVO" secondAttribute="trailing" constant="60" id="eNU-hJ-F7a"/>
                             <constraint firstItem="obt-uo-hYz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-10" id="gAb-we-7Zr"/>
@@ -199,30 +199,6 @@
                 <exit id="yib-GC-uuQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4380" y="87"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="uV1-GU-VOh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sgk-U0-Jyk" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="oHW-bv-kRm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.66666666666666"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="45"/>
-                            <color key="textColor" red="0.98547424930000005" green="0.98547424930000005" blue="0.98547424930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="textShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="3" vertical="3"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FK2-MH-Dwj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IIE-Hs-Vrc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2606" y="87"/>
         </scene>
     </scenes>
     <resources>

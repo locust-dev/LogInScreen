@@ -12,9 +12,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
+    @IBOutlet var forgoteButtons: [UITextField]!
+    
     @IBOutlet weak var logInBtnOutlet: UIButton!
     @IBOutlet weak var forgotUserName: UIButton!
     @IBOutlet weak var forgotPassword: UIButton!
+    
+    private var login = "Alex"
+    private var password = "qwerty"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +41,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logInButton() {
-        if loginTF.text == "Alex", passwordTF.text == "qwerty" {
+        if loginTF.text == login, passwordTF.text == password {
             performSegue(withIdentifier: "toWelcomeScreen", sender: nil)
+        } else if loginTF.text == "", passwordTF.text == "" {
+            alert(title: "Error!", message: "Please, enter your login and password!")
+            addAnimationShake(for: loginTF)
+            addAnimationShake(for: passwordTF)
         } else {
             alert(title: "Wow!", message: "It looks like your credentials are incorrect😾")
             addAnimationShake(for: loginTF)
@@ -46,14 +55,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func forgotButtons(_ sender: UIButton) {
-        sender == forgotUserName ?
-            alert(title: "Forgot?", message: "Your login is Alex!") :
-            alert(title: "Forgot?", message: "Your password is qwerty!")
+        sender.tag == 0
+            ? alert(title: "Forgot?", message: "Your login is \(login)!")
+            : alert(title: "Forgot?", message: "Your password is \(password)!")
     }
     
     @IBAction func unwindToLogin(for segue: UIStoryboardSegue) {
-        loginTF.text = ""
-        passwordTF.text = ""
+        loginTF.text = nil
+        passwordTF.text = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

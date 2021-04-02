@@ -12,23 +12,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    @IBOutlet var forgoteButtons: [UITextField]!
-    
     @IBOutlet weak var logInBtnOutlet: UIButton!
-    @IBOutlet weak var forgotUserName: UIButton!
-    @IBOutlet weak var forgotPassword: UIButton!
+    @IBOutlet var forgoteButtons: [UIButton]!
     
     private var login = "Alex"
     private var password = "qwerty"
     
+    // MARK: - Overrided Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addAppearance(for: logInBtnOutlet)
         addAppearance(for: loginTF)
         addAppearance(for: passwordTF)
-        addAppearance(for: forgotUserName)
-        addAppearance(for: forgotPassword)
+        addAppearance(for: forgoteButtons[0])
+        addAppearance(for: forgoteButtons[1])
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -40,6 +38,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         welcomeVC.userName = loginTF.text
     }
     
+    // MARK: - IBActions
     @IBAction func logInButton() {
         if loginTF.text == login, passwordTF.text == password {
             performSegue(withIdentifier: "toWelcomeScreen", sender: nil)
@@ -65,10 +64,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTF.text = nil
     }
     
+    // MARK: - Public Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case loginTF: passwordTF.becomeFirstResponder()
-        default: logInButton()
+        if textField == loginTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            logInButton()
         }
         return true
     }

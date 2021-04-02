@@ -39,6 +39,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E93D533D2617493C006536B2 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				E9B916D526135E4200E2E486 /* AppDelegate.swift */,
+				E9B916D726135E4200E2E486 /* SceneDelegate.swift */,
+				E9B916E326135E4300E2E486 /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		E93D53402617495A006536B2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9B916F02613636200E2E486 /* LoginViewController.swift */,
+				E9B916EB2613613700E2E486 /* WelcomeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E93D534226174968006536B2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E9B916DB26135E4200E2E486 /* Main.storyboard */,
+				E9B916E026135E4300E2E486 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E93D534326174972006536B2 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9B916DE26135E4300E2E486 /* Assets.xcassets */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
 		E9B916C926135E4200E2E486 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +94,10 @@
 		E9B916D426135E4200E2E486 /* SeguesHomework */ = {
 			isa = PBXGroup;
 			children = (
-				E9B916D526135E4200E2E486 /* AppDelegate.swift */,
-				E9B916D726135E4200E2E486 /* SceneDelegate.swift */,
-				E9B916F02613636200E2E486 /* LoginViewController.swift */,
-				E9B916EB2613613700E2E486 /* WelcomeViewController.swift */,
-				E9B916DB26135E4200E2E486 /* Main.storyboard */,
-				E9B916DE26135E4300E2E486 /* Assets.xcassets */,
-				E9B916E026135E4300E2E486 /* LaunchScreen.storyboard */,
-				E9B916E326135E4300E2E486 /* Info.plist */,
+				E93D533D2617493C006536B2 /* Supporting */,
+				E93D53402617495A006536B2 /* View Controllers */,
+				E93D534226174968006536B2 /* Storyboards */,
+				E93D534326174972006536B2 /* Files */,
 			);
 			path = SeguesHomework;
 			sourceTree = "<group>";
@@ -292,7 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHQ7TS5P9H;
-				INFOPLIST_FILE = SeguesHomework/Info.plist;
+				INFOPLIST_FILE = SeguesHomework/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,7 +343,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHQ7TS5P9H;
-				INFOPLIST_FILE = SeguesHomework/Info.plist;
+				INFOPLIST_FILE = SeguesHomework/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

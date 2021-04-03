@@ -23,12 +23,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addAppearance(for: logInBtnOutlet)
-        addAppearance(for: loginTF)
-        addAppearance(for: passwordTF)
-        addAppearance(for: forgoteButtons[0])
-        addAppearance(for: forgoteButtons[1])
-        addAppearance(for: registrBtnOutlet)
+        placeHolder(for: loginTF, with: "Login", and: .lightGray)
+        placeHolder(for: passwordTF, with: "Password", and: .lightGray)
+        
+        addAppearanceFor(logInBtnOutlet,
+                         loginTF,
+                         passwordTF,
+                         forgoteButtons[0],
+                         forgoteButtons[1],
+                         registrBtnOutlet)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -42,9 +45,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         for viewController in viewControllers {
             if let welcomeVC = viewController as? WelcomeViewController {
                 welcomeVC.userName = "\(currentUser.name) \(currentUser.surname)"
+            } else if let photoVC = viewController as? UserPhotoViewController {
+                photoVC.currentUser = currentUser
             } else if let navigationVC = viewController as? UINavigationController {
-                _ = navigationVC.topViewController as! AboutUserViewController
-                
+                let aboutVC = navigationVC.topViewController as! AboutUserViewController
+                aboutVC.currentUser = currentUser
             }
         }
     }
@@ -54,21 +59,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if loginTF.text == "" || passwordTF.text == "" {
             alert(title: "Error!", message: "Please, enter your login and password!")
-            addAnimationShake(for: loginTF)
-            addAnimationShake(for: passwordTF)
+            addAnimationShake(for: loginTF, passwordTF)
         } else if searchUser(by: loginTF, and: passwordTF, in: allUsers) {
             performSegue(withIdentifier: "toWelcomeScreen", sender: nil)
         } else {
             alert(title: "Wow!", message: "It looks like your credentials are incorrect😾")
-            addAnimationShake(for: loginTF)
-            addAnimationShake(for: passwordTF)
+            addAnimationShake(for: loginTF, passwordTF)
         }
     }
     
     @IBAction func forgotButtons(_ sender: UIButton) {
         sender.tag == 0
-            ? alert(title: "Forgot?", message: "Your login is \(currentUser.login)!")
-            : alert(title: "Forgot?", message: "Your password is \(currentUser.password)!")
+            ? alert(title: "Forgot?", message: "Your login is \(allUsers.users[0].login)!")
+            : alert(title: "Forgot?", message: "Your password is \(allUsers.users[0].password)!")
     }
     
     @IBAction func unwindToLogin(for segue: UIStoryboardSegue) {
@@ -115,25 +118,34 @@ extension LoginViewController {
         return result
     }
     
-    
 }
 
 // MARK: - Appearance Methods
 extension LoginViewController {
     
-    private func addAppearance(for outlet: UIView) {
-        outlet.layer.cornerRadius = outlet.frame.height / 2
-        outlet.layer.shadowOpacity = 0.25
-        outlet.layer.shadowOffset = CGSize(width: 7, height: 10)
-        outlet.layer.shadowColor = UIColor.black.cgColor
-        outlet.layer.shadowRadius = 5.0
+    private func addAppearanceFor(_ outlets: UIView...) {
+        outlets.forEach { outlet in
+            outlet.layer.cornerRadius = outlet.frame.height / 2
+            outlet.layer.shadowOpacity = 0.25
+            outlet.layer.shadowOffset = CGSize(width: 7, height: 10)
+            outlet.layer.shadowColor = UIColor.black.cgColor
+            outlet.layer.shadowRadius = 5.0
+        }
     }
     
-    private func addAnimationShake(for outlet: UIView) {
+    private func addAnimationShake(for outlets: UIView...) {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.duration = 0.6
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        outlet.layer.add(animation, forKey: "shake")
+        
+        outlets.forEach { outlet in
+            outlet.layer.add(animation, forKey: "shake")
+        }
     }
+    
+    private func placeHolder(for textfield: UITextField, with text: String, and color: UIColor) {
+        textfield.attributedPlaceholder = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
+    
 }

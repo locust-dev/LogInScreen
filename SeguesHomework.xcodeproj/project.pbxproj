@@ -18,6 +18,7 @@
 		E9DC993D26178DDE004D4625 /* AboutUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC993C26178DDE004D4625 /* AboutUserViewController.swift */; };
 		E9DC994026178E15004D4625 /* MoreInfoUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC993F26178E15004D4625 /* MoreInfoUserViewController.swift */; };
 		E9DC99432617A579004D4625 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC99422617A579004D4625 /* RegistrationViewController.swift */; };
+		E9E826802618C67C00FB6C21 /* UserPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E8267F2618C67C00FB6C21 /* UserPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E9DC993C26178DDE004D4625 /* AboutUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserViewController.swift; sourceTree = "<group>"; };
 		E9DC993F26178E15004D4625 /* MoreInfoUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoUserViewController.swift; sourceTree = "<group>"; };
 		E9DC99422617A579004D4625 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		E9E8267F2618C67C00FB6C21 /* UserPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				E9B916EB2613613700E2E486 /* WelcomeViewController.swift */,
 				E9DC993C26178DDE004D4625 /* AboutUserViewController.swift */,
 				E9DC993F26178E15004D4625 /* MoreInfoUserViewController.swift */,
+				E9E8267F2618C67C00FB6C21 /* UserPhotoViewController.swift */,
 				E9DC99422617A579004D4625 /* RegistrationViewController.swift */,
 			);
 			path = "View Controllers";
@@ -199,6 +202,7 @@
 				E93D534826174CD5006536B2 /* Users.swift in Sources */,
 				E9B916D626135E4200E2E486 /* AppDelegate.swift in Sources */,
 				E9B916D826135E4200E2E486 /* SceneDelegate.swift in Sources */,
+				E9E826802618C67C00FB6C21 /* UserPhotoViewController.swift in Sources */,
 				E9DC993D26178DDE004D4625 /* AboutUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

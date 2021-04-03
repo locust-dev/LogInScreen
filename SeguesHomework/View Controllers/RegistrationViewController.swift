@@ -10,6 +10,7 @@ import UIKit
 class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var aboutTF: UITextField!
+    @IBOutlet weak var hobbiesTF: UITextField!
     @IBOutlet var requiredTF: [UITextField]!
     
     @IBOutlet var attributesLabels: [UILabel]!
@@ -20,17 +21,16 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addAppearance(for: aboutTF)
-        addAppearance(for: registerButton)
-        addAppearance(for: cancelBtnOutlet)
+        placeHolder(for: requiredTF, "required", .lightGray)
+        placeHolder(for: [aboutTF,hobbiesTF], "optional", .lightGray)
         
-        // Знаю что повторил код но думать нет сил
-        requiredTF.forEach { element in
-            addAppearance(for: element)
-        }
-        attributesLabels.forEach { element in
-            addAppearance(for: element)
-        }
+        addAppearanceFor([aboutTF,
+                          hobbiesTF,
+                          registerButton,
+                          cancelBtnOutlet],
+                          attributesLabels,
+                          requiredTF)
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,11 +77,16 @@ extension RegistrationViewController {
     }
     
     private func appendNewUserTo(_ stackOfUsers: Users, exit: Bool) {
+        
+      
+        
         let user = User(name: requiredTF[0].text!,
                         surname: requiredTF[1].text!,
                         login: requiredTF[2].text!,
                         password: requiredTF[3].text!,
-                        aboutUser: aboutTF.text ?? "User didn`t speify any info about yourself")
+                        aboutUser: aboutTF.text ?? "",
+                        hobbies: hobbiesTF.text ?? "",
+                        photo: "DefaultAvatar")
         stackOfUsers.users.append(user)
         
         if exit {
@@ -105,11 +110,23 @@ extension RegistrationViewController {
 // MARK: - Appearance Methods
 extension RegistrationViewController {
     
-    private func addAppearance(for outlet: UIView) {
-        outlet.layer.cornerRadius = outlet.frame.height / 2
-        outlet.layer.shadowOpacity = 0.25
-        outlet.layer.shadowOffset = CGSize(width: 7, height: 10)
-        outlet.layer.shadowColor = UIColor.black.cgColor
-        outlet.layer.shadowRadius = 5.0
+    private func addAppearanceFor(_ collections: [UIView]...) {
+        collections.forEach { collection in
+            collection.forEach { outlet in
+                outlet.layer.cornerRadius = outlet.frame.height / 2
+                outlet.layer.shadowOpacity = 0.25
+                outlet.layer.shadowOffset = CGSize(width: 7, height: 10)
+                outlet.layer.shadowColor = UIColor.black.cgColor
+                outlet.layer.shadowRadius = 5.0
+            }
+        }
     }
+    
+    private func placeHolder(for textfields: [UITextField], _ title: String, _ color: UIColor) {
+        textfields.forEach { textField in
+            textField.attributedPlaceholder = NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: color])
+        }
+    }
+    
 }
+

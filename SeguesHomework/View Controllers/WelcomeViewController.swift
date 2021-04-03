@@ -21,3 +21,5 @@ class WelcomeViewController: UIViewController {
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
     }
 }
+
+

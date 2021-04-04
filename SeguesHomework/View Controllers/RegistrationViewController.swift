@@ -20,7 +20,7 @@ class RegistrationViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         placeHolder(for: requiredTF, "required", .lightGray)
         placeHolder(for: [aboutTF,hobbiesTF], "optional", .lightGray)
         
@@ -28,8 +28,8 @@ class RegistrationViewController: UIViewController, UIScrollViewDelegate {
                           hobbiesTF,
                           registerButton,
                           cancelBtnOutlet],
-                          attributesLabels,
-                          requiredTF)
+                         attributesLabels,
+                         requiredTF)
     }
     
     @IBAction func registerPressed() {
@@ -58,8 +58,9 @@ extension RegistrationViewController {
         present(alert, animated: true)
     }
     
-    
+}
 // MARK: - Methods for add new user
+extension RegistrationViewController {
     private func textFieldIsEmpty(for collection: [UITextField]) -> Bool {
         for textField in collection {
             if textField.text == "" {
@@ -92,8 +93,10 @@ extension RegistrationViewController {
         }
         return false
     }
-
+    
+}
 // MARK: - Appearance Methods
+extension RegistrationViewController {
     private func addAppearanceFor(_ collections: [UIView]...) {
         collections.forEach { collection in
             collection.forEach { outlet in
@@ -111,6 +114,6 @@ extension RegistrationViewController {
             textField.attributedPlaceholder = NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: color])
         }
     }
-
+    
 }
 

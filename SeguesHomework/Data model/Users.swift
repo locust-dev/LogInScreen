@@ -11,8 +11,8 @@ class Users {
                       surname: "Turin",
                       login: "Turin",
                       password: "qwerty",
-                      aboutUser: "Hi, My name is Ilya! I am 23 years old. I love programming.",
-                      hobbies: "Swimming, running, reading",
+                      aboutUser: "Hey! My name is Ilya and I am 23 years old. Until recently, I was a public procurement specialist, but I quit my job a couple of months ago. I decided that I needed to change my profession to a more promising one and, most importantly, one that gives pleasure! That is why I am here.",
+                      hobbies: "I love IT and everything related to it. Phones, computers, startups, new technologies, cool products and people. I also love reading technical documentation and programming)",
                       photo: "MyPhoto")]
 }
 

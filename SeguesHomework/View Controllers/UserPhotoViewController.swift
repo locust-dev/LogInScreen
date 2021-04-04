@@ -20,7 +20,4 @@ class UserPhotoViewController: UIViewController {
         userPhoto.layer.cornerRadius = 25
         userPhoto.clipsToBounds = true
     }
-    
-
-
 }

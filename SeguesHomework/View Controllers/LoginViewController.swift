@@ -105,17 +105,14 @@ extension LoginViewController {
     }
     
     private func searchUser(by login: UITextField, and password: UITextField, in allUsers: Users) -> Bool {
-        var result = false
-        
         for user in allUsers.users {
             if user.login == loginTF.text, user.password == passwordTF.text {
                 currentUser = user
                 performSegue(withIdentifier: "toWelcomeScreen", sender: nil)
-                result = true
-                break
+                return true
             }
         }
-        return result
+        return false
     }
     
 }

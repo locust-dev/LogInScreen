@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var aboutTF: UITextField!
     @IBOutlet weak var hobbiesTF: UITextField!
@@ -30,17 +30,11 @@ class RegistrationViewController: UIViewController {
                           cancelBtnOutlet],
                           attributesLabels,
                           requiredTF)
-        
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
     }
     
     @IBAction func registerPressed() {
         if textFieldIsEmpty(for: requiredTF) {
-            alert(title: "👊🏻", message: "All fields excepted About must be filled in!")
+            alert(title: "👊🏻", message: "All required fields must be filled in!")
         } else if loginAlreadyRegistred(requiredTF[2], allUsers) {
             alert(title: "Oops", message: "This login is already registred!")
         } else {
@@ -64,22 +58,18 @@ extension RegistrationViewController {
         present(alert, animated: true)
     }
     
+    
+// MARK: - Methods for add new user
     private func textFieldIsEmpty(for collection: [UITextField]) -> Bool {
-        var result = false
-        
         for textField in collection {
             if textField.text == "" {
-                result = true
-                break
+                return true
             }
         }
-        return result
+        return false
     }
     
     private func appendNewUserTo(_ stackOfUsers: Users, exit: Bool) {
-        
-      
-        
         let user = User(name: requiredTF[0].text!,
                         surname: requiredTF[1].text!,
                         login: requiredTF[2].text!,
@@ -95,21 +85,15 @@ extension RegistrationViewController {
     }
     
     private func loginAlreadyRegistred(_ from: UITextField, _ allUsers: Users) -> Bool {
-        var isRegistred = false
-        
         for user in allUsers.users {
             if from.text == user.login {
-                isRegistred = true
-                break
+                return true
             }
         }
-        return isRegistred
+        return false
     }
-}
 
 // MARK: - Appearance Methods
-extension RegistrationViewController {
-    
     private func addAppearanceFor(_ collections: [UIView]...) {
         collections.forEach { collection in
             collection.forEach { outlet in
@@ -127,6 +111,6 @@ extension RegistrationViewController {
             textField.attributedPlaceholder = NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: color])
         }
     }
-    
+
 }
 

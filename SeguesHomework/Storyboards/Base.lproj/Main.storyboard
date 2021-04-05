@@ -241,12 +241,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Hello, User!" id="MVc-gj-0bi"/>
                     <connections>
+                        <outlet property="forgotLogin" destination="lbH-Qp-OSp" id="KbZ-re-2cr"/>
+                        <outlet property="forgotPass" destination="1jZ-z8-2lb" id="RxX-0P-RXj"/>
                         <outlet property="logInBtnOutlet" destination="zkS-Po-Ngm" id="o50-0P-H0P"/>
                         <outlet property="loginTF" destination="klb-2h-K96" id="oAG-Fq-feC"/>
                         <outlet property="passwordTF" destination="s5m-XQ-SB9" id="5eV-M9-RpY"/>
                         <outlet property="registrBtnOutlet" destination="EAa-uM-VVz" id="hS8-s4-eYo"/>
-                        <outletCollection property="forgoteButtons" destination="1jZ-z8-2lb" collectionClass="NSMutableArray" id="IsY-DK-9Yj"/>
-                        <outletCollection property="forgoteButtons" destination="lbH-Qp-OSp" collectionClass="NSMutableArray" id="XAA-kv-PAn"/>
                         <segue destination="ctf-4X-rJJ" kind="presentation" identifier="toWelcomeScreen" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="rxN-5I-UQC"/>
                     </connections>
                 </viewController>

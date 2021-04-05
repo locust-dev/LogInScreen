@@ -14,24 +14,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var registrBtnOutlet: UIButton!
     @IBOutlet weak var logInBtnOutlet: UIButton!
-    @IBOutlet var forgoteButtons: [UIButton]!
+    
+    @IBOutlet weak var forgotLogin: UIButton!
+    @IBOutlet weak var forgotPass: UIButton!
     
     // Default user is Admin (Ilya Turin)
-    private var currentUser = allUsers.users[0]
+    private var currentUser = allUsers.users.first
     
     // MARK: - Overrided Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        placeHolder(for: loginTF, with: "Login", and: .lightGray)
-        placeHolder(for: passwordTF, with: "Password", and: .lightGray)
+        setPlaceHolder(for: loginTF, with: "Login", and: .lightGray)
+        setPlaceHolder(for: passwordTF, with: "Password", and: .lightGray)
         
-        addAppearanceFor(logInBtnOutlet,
-                         loginTF,
-                         passwordTF,
-                         forgoteButtons[0],
-                         forgoteButtons[1],
-                         registrBtnOutlet)
+        addAppearanceFor(
+            logInBtnOutlet,
+            loginTF,
+            passwordTF,
+            forgotPass,
+            forgotLogin,
+            registrBtnOutlet
+        )
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,7 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         for viewController in viewControllers {
             if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.userName = "\(currentUser.name) \(currentUser.surname)"
+                welcomeVC.currentUser = currentUser
             } else if let photoVC = viewController as? UserPhotoViewController {
                 photoVC.currentUser = currentUser
             } else if let navigationVC = viewController as? UINavigationController {
@@ -69,7 +73,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func forgotButtons(_ sender: UIButton) {
-        sender.tag == 0
+        sender == forgotLogin
             ? alert(title: "Forgot?", message: "Your login is \(allUsers.users[0].login)!")
             : alert(title: "Forgot?", message: "Your password is \(allUsers.users[0].password)!")
     }
@@ -132,17 +136,19 @@ extension LoginViewController {
     
     private func addAnimationShake(for outlets: UIView...) {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        animation.duration = 0.6
-        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+            animation.duration = 0.6
+            animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         
-        outlets.forEach { outlet in
-            outlet.layer.add(animation, forKey: "shake")
+            outlets.forEach { outlet in
+                outlet.layer.add(animation, forKey: "shake")
         }
     }
     
-    private func placeHolder(for textfield: UITextField, with text: String, and color: UIColor) {
-        textfield.attributedPlaceholder = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor: color])
+    private func setPlaceHolder(for textfield: UITextField, with text: String, and color: UIColor) {
+        textfield.attributedPlaceholder = NSAttributedString(
+            string: text,
+            attributes: [NSAttributedString.Key.foregroundColor: color])
     }
     
 }

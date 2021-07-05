@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		E93D534726174CD5006536B2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
-		E9B916D226135E4200E2E486 /* SeguesHomework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeguesHomework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B916D226135E4200E2E486 /* LogInScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogInScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B916D526135E4200E2E486 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9B916D726135E4200E2E486 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E9B916DC26135E4200E2E486 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		E9B916C926135E4200E2E486 = {
 			isa = PBXGroup;
 			children = (
-				E9B916D426135E4200E2E486 /* SeguesHomework */,
+				E9B916D426135E4200E2E486 /* LogInScreen */,
 				E9B916D326135E4200E2E486 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,12 +111,12 @@
 		E9B916D326135E4200E2E486 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E9B916D226135E4200E2E486 /* SeguesHomework.app */,
+				E9B916D226135E4200E2E486 /* LogInScreen.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E9B916D426135E4200E2E486 /* SeguesHomework */ = {
+		E9B916D426135E4200E2E486 /* LogInScreen */ = {
 			isa = PBXGroup;
 			children = (
 				E93D534526174CAD006536B2 /* Data model */,
@@ -125,15 +125,15 @@
 				E93D534226174968006536B2 /* Storyboards */,
 				E93D534326174972006536B2 /* Files */,
 			);
-			path = SeguesHomework;
+			path = LogInScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E9B916D126135E4200E2E486 /* SeguesHomework */ = {
+		E9B916D126135E4200E2E486 /* LogInScreen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9B916E626135E4300E2E486 /* Build configuration list for PBXNativeTarget "SeguesHomework" */;
+			buildConfigurationList = E9B916E626135E4300E2E486 /* Build configuration list for PBXNativeTarget "LogInScreen" */;
 			buildPhases = (
 				E9B916CE26135E4200E2E486 /* Sources */,
 				E9B916CF26135E4200E2E486 /* Frameworks */,
@@ -143,9 +143,9 @@
 			);
 			dependencies = (
 			);
-			name = SeguesHomework;
+			name = LogInScreen;
 			productName = SeguesHomework;
-			productReference = E9B916D226135E4200E2E486 /* SeguesHomework.app */;
+			productReference = E9B916D226135E4200E2E486 /* LogInScreen.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +162,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E9B916CD26135E4200E2E486 /* Build configuration list for PBXProject "SeguesHomework" */;
+			buildConfigurationList = E9B916CD26135E4200E2E486 /* Build configuration list for PBXProject "LogInScreen" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -175,7 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E9B916D126135E4200E2E486 /* SeguesHomework */,
+				E9B916D126135E4200E2E486 /* LogInScreen */,
 			);
 		};
 /* End PBXProject section */
@@ -356,12 +356,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHQ7TS5P9H;
-				INFOPLIST_FILE = SeguesHomework/Supporting/Info.plist;
+				INFOPLIST_FILE = LogInScreen/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = voxx.SeguesHomework;
+				PRODUCT_BUNDLE_IDENTIFIER = voxx.LogInScreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -375,12 +375,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHQ7TS5P9H;
-				INFOPLIST_FILE = SeguesHomework/Supporting/Info.plist;
+				INFOPLIST_FILE = LogInScreen/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = voxx.SeguesHomework;
+				PRODUCT_BUNDLE_IDENTIFIER = voxx.LogInScreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,7 +390,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E9B916CD26135E4200E2E486 /* Build configuration list for PBXProject "SeguesHomework" */ = {
+		E9B916CD26135E4200E2E486 /* Build configuration list for PBXProject "LogInScreen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9B916E426135E4300E2E486 /* Debug */,
@@ -399,7 +399,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9B916E626135E4300E2E486 /* Build configuration list for PBXNativeTarget "SeguesHomework" */ = {
+		E9B916E626135E4300E2E486 /* Build configuration list for PBXNativeTarget "LogInScreen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9B916E726135E4300E2E486 /* Debug */,
